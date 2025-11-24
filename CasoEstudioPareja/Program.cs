@@ -51,6 +51,7 @@ namespace CasoEstudioPareja
             bool continuar = true;
             while (continuar)
             {
+                //Menú principal
                 Console.WriteLine("\n--- Biblioteca Digital Estudiantil ---");
                 Console.WriteLine("1. Búsqueda lineal por título");
                 Console.WriteLine("2. Búsqueda binaria por autor");
@@ -63,7 +64,9 @@ namespace CasoEstudioPareja
 
                 switch (opcion)
                 {
+                    // Manejo de opciones del menú
                     case "1":
+                        // Opción de búsqueda lineal por título
                         Console.Write("Ingresa el título a buscar: ");
                         string tituloBuscar = Console.ReadLine();
                         var libroEncontrado = BusquedaLineal(libros, tituloBuscar);
@@ -71,21 +74,25 @@ namespace CasoEstudioPareja
                         break;
 
                     case "2":
+                        // Opción de búsqueda binaria por autor
                         Console.Write("Ingresa el autor a buscar: ");
                         string autorBuscar = Console.ReadLine();
                         bool encontrado = BusquedaBinaria(autoresOrdenados, autorBuscar);
                         Console.WriteLine(encontrado ? $"Autor '{autorBuscar}' encontrado." : "Autor no encontrado.");
                         break;
                     case "3":
+                        // Encuentra el libro más reciente usando orden descendente por año
                         var masReciente = libros.OrderByDescending(l => l.Año).First();
                         Console.WriteLine($"Libro más reciente: {masReciente}");
                         break;
                     case "4":
+                        // Encuentra el libro más antiguo usando orden ascendente por año
                         var masAntiguo = libros.OrderBy(l => l.Año).First();
                         Console.WriteLine($"Libro más antiguo: {masAntiguo}");
                         break;
 
                     case "5":
+                        // Busca coincidencias en las descripciones de los libros
                         Console.Write("Ingresa la palabra clave para buscar en descripciones: ");
                         string palabraClave = Console.ReadLine();
                         var coincidencias = BusquedaCoincidencias(libros, palabraClave);
@@ -103,6 +110,7 @@ namespace CasoEstudioPareja
                         }
                         break;
                     case "6":
+                        // Finaliza el programa
                         continuar = false;
                         break;
                     default:
