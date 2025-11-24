@@ -147,7 +147,7 @@ namespace CasoEstudioPareja
             return false;
         }
 
-        // Búsqueda de coincidencias en descripciones (simple búsqueda de subcadena)
+        // Búsqueda de coincidencias en descripciones
         static List<Libro> BusquedaCoincidencias(List<Libro> libros, string palabraClave)
         {
             return libros.Where(l => l.Descripcion.IndexOf(palabraClave, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
