@@ -81,6 +81,7 @@ namespace CasoEstudioPareja
                         var masAntiguo = libros.OrderBy(l => l.Año).First();
                         Console.WriteLine($"Libro más antiguo: {masAntiguo}");
                         break;
+
                     case "5":
                         Console.Write("Ingresa la palabra clave para buscar en descripciones: ");
                         string palabraClave = Console.ReadLine();
@@ -144,6 +145,12 @@ namespace CasoEstudioPareja
                 }
             }
             return false;
+        }
+
+        // Búsqueda de coincidencias en descripciones (simple búsqueda de subcadena)
+        static List<Libro> BusquedaCoincidencias(List<Libro> libros, string palabraClave)
+        {
+            return libros.Where(l => l.Descripcion.IndexOf(palabraClave, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
         }
 
     }
