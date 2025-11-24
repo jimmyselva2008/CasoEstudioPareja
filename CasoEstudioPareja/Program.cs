@@ -14,6 +14,9 @@ namespace CasoEstudioPareja
         public string Autor { get; set; }
         public int Año { get; set; }
         public string Descripcion { get; set; }
+
+
+        // Constructor para inicializar un libro con sus datos
         public Libro(string titulo, string autor, int ano, string descripcion)
         {
             Titulo = titulo;
