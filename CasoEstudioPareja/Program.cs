@@ -81,7 +81,6 @@ namespace CasoEstudioPareja
                         var masAntiguo = libros.OrderBy(l => l.Año).First();
                         Console.WriteLine($"Libro más antiguo: {masAntiguo}");
                         break;
-
                     case "5":
                         Console.Write("Ingresa la palabra clave para buscar en descripciones: ");
                         string palabraClave = Console.ReadLine();
@@ -123,6 +122,29 @@ namespace CasoEstudioPareja
         }
 
         // Búsqueda binaria: En lista ordenada de autores
+        static bool BusquedaBinaria(List<string> autores, string autor)
+        {
+            int izquierda = 0, derecha = autores.Count - 1;
+
+            while (izquierda <= derecha)
+            {
+                int medio = (izquierda + derecha) / 2;
+                int comparacion = string.Compare(autores[medio], autor, StringComparison.OrdinalIgnoreCase);
+                if (comparacion == 0)
+                {
+                    return true;
+                }
+                else if (comparacion < 0)
+                {
+                    izquierda = medio + 1;
+                }
+                else
+                {
+                    derecha = medio - 1;
+                }
+            }
+            return false;
+        }
 
     }
 }
