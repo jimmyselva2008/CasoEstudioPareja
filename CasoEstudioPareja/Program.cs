@@ -110,6 +110,17 @@ namespace CasoEstudioPareja
             }
 
         // Búsqueda lineal: Recorre la lista hasta encontrar el título
+        static Libro BusquedaLineal(List<Libro> libros, string titulo)
+        {
+            foreach (var libro in libros)
+            {
+                if (libro.Titulo.Equals(titulo, StringComparison.OrdinalIgnoreCase))
+                {
+                    return libro;
+                }
+            }
+            return null;
+        }
 
         // Búsqueda binaria: En lista ordenada de autores
 
